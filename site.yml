@@ -1,0 +1,61 @@
+---
+- hosts:
+    - all
+
+  gather_facts: true
+  remote_user: ubuntu
+  sudo: true
+  sudo_user: root
+
+  vars:
+    - include: vars/main.yml
+    - root_passwd: entrar
+  
+  pre_tasks:
+    - name: Comprobar si root tiene contraseña
+      shell: passwd -S ubuntu | cut -d " " -f 2
+      register: haspass
+      changed_when: not haspass.stdout == "P"
+
+    - name: Configurar "entrar" como contraseña de root
+      shell: 'echo root:{{ root_passwd }} | sudo chpasswd'
+      when: haspass|changed
+
+    - name: Permitir acceso por SSH mediante contraseña (ChallengeResponseAuthentication)
+      lineinfile: dest=/etc/ssh/sshd_config
+        regexp='^ChallengeResponseAuthentication'
+        line='ChallengeResponseAuthentication yes'
+      notify: restart ssh
+  
+    - name: Permitir acceso por SSH mediante contraseña (PasswordAuthentication)
+      lineinfile: dest=/etc/ssh/sshd_config
+        regexp='^PasswordAuthentication'
+        line='PasswordAuthentication yes'
+      notify: restart ssh
+  
+    - name: Permitir acceso por SSH mediante contraseña (PermitRootLogin)
+      lineinfile: dest=/etc/ssh/sshd_config
+        regexp='^PermitRootLogin'
+        line='PermitRootLogin yes'
+      notify: restart ssh
+  
+    - name: Actualizar la lista de paquetes
+      apt: update_cache=yes
+      tags: update_cache
+
+  roles:
+    #- base
+    #- { role: base, tags: ["base"] }
+    - hostname
+    #- customize
+
+  tasks:
+    - name: Comprobar conectividad
+      ping:
+      tags:
+        - test
+
+
+  handlers:
+    - include: handlers/main.yml
+

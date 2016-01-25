@@ -1,0 +1,24 @@
+[default]
+equipo01 ansible_ssh_host=172.20.10.168 ansible_ssh_port=22
+equipo02 ansible_ssh_host=172.20.10.169 ansible_ssh_port=22
+equipo03 ansible_ssh_host=172.20.10.170 ansible_ssh_port=22
+equipo04 ansible_ssh_host=172.20.10.171 ansible_ssh_port=22
+equipo05 ansible_ssh_host=172.20.10.172 ansible_ssh_port=22
+equipo06 ansible_ssh_host=172.20.10.173 ansible_ssh_port=22
+equipo07 ansible_ssh_host=172.20.10.174 ansible_ssh_port=22
+equipo08 ansible_ssh_host=172.20.10.175 ansible_ssh_port=22
+equipo09 ansible_ssh_host=172.20.10.176 ansible_ssh_port=22
+equipo10 ansible_ssh_host=172.20.10.177 ansible_ssh_port=22
+equipo11 ansible_ssh_host=172.20.10.178 ansible_ssh_port=22
+equipo12 ansible_ssh_host=172.20.10.179 ansible_ssh_port=22
+equipo13 ansible_ssh_host=172.20.10.180 ansible_ssh_port=22
+equipo14 ansible_ssh_host=172.20.10.181 ansible_ssh_port=22
+equipo15 ansible_ssh_host=172.20.10.182 ansible_ssh_port=22
+equipo16 ansible_ssh_host=172.20.10.183 ansible_ssh_port=22
+equipo17 ansible_ssh_host=172.20.10.184 ansible_ssh_port=22
+equipo18 ansible_ssh_host=172.20.10.185 ansible_ssh_port=22
+equipo19 ansible_ssh_host=172.20.10.186 ansible_ssh_port=22
+equipo20 ansible_ssh_host=172.20.10.187 ansible_ssh_port=22
+equipo21 ansible_ssh_host=172.20.10.188 ansible_ssh_port=22
+equipo22 ansible_ssh_host=172.20.10.189 ansible_ssh_port=22
+equipo23 ansible_ssh_host=172.20.10.190 ansible_ssh_port=22

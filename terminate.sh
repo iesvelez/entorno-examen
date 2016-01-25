@@ -20,7 +20,7 @@ read -p '¿Estás seguro de querer terminar todas las instancias? (s/N): ' CONFI
 [ "$CONFIRM" != "s" -a "$CONFIRM" != "S" ] && exit
 
 
-time cat $HOST_FILE | grep -vE ^$ | while read LINE
+time cat $INSTANCE_FILE | grep -vE ^$ | while read LINE
 do
 	FLOATING_IP=`echo $LINE | awk '{print $1}'`
 	INSTANCE_NAME=`echo $LINE | awk '{print $2}'`

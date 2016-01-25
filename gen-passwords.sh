@@ -17,7 +17,7 @@ source deploy.conf
 
 PASSLIST=`apg -n 100 -m 6 -x 6 -M NL`
 
-truncate -s 0 $OUTPUT
+truncate -s 0 $PASSWD_FILE
 
 cat $INSTANCE_FILE | grep -v '^$' | {
 	IFS=,

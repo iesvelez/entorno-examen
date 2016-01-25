@@ -8,7 +8,7 @@
 
 source deploy.conf
 
-NET_ID=`neutron net-list | awk "/$NET_NAME/ {print $2}"`
+NET_ID=`neutron net-list | grep "$NET_NAME" | awk '{print $2}'`
 
 
 ########################################################################
@@ -17,7 +17,7 @@ NET_ID=`neutron net-list | awk "/$NET_NAME/ {print $2}"`
 #
 ########
 
-truncate -s 0 $OUTPUT
+truncate -s 0 $INSTANCE_FILE
 
 time for i in `seq $NUM`
 do

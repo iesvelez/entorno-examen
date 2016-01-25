@@ -17,7 +17,7 @@ source deploy.conf
 
 echo "[default]" > $INVENTORY_FILE
 
-cat $HOST_FILE | grep -vE ^$ | while read LINE
+cat $INSTANCE_FILE | grep -vE ^$ | while read LINE
 do
 	FLOATING_IP=`echo $LINE | awk '{print $1}'`
 	INSTANCE_NAME=`echo $LINE | awk '{print $2}'`
